@@ -1,0 +1,20 @@
+/* TodoListItem.module.css */
+
+.todo-list-item-container{
+    display: flex;
+    align-items: center;
+}
+
+.check-button {
+    order: 1;
+}
+
+.todo-list-item {
+    order: 2;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.delete-button {
+    order: 3;
+}

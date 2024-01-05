@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import TodoList from './containers/TodoList.js';
 
 function App() {
-  const [item, setItem] = useState('');
+  const [item, setItem] = useState({});
   const [items, setItems] = useState([]);
 
   const handleAddItem = (item) => {

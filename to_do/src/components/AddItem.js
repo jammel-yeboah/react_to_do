@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import styles from '../AddItem.module.css';
 
 /*
 add item button
@@ -17,24 +19,25 @@ function AddItem ({item, setItem, handleAddItem}) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (item !== ''){
-            setAddingItem(false); //item is now added, we aren't currently adding an item
+        if (item.text !== undefined && item.text !== ''){
+            item.id = uuidv4();
             handleAddItem(item); //add item to list
-            setItem(''); //reset item state
+            setItem({}); //reset item state
+            setAddingItem(false); //item is now added, we aren't currently adding an item
         }
     }
 
     const handleChange = (event) => {
-        setItem(event.target.value);
+        setItem(prevItem => ({ ...prevItem, text: event.target.value }));
     }
 
     return (
-        <div>
-            <button onClick={handleClick}>Add an Item</button>
+        <div className={styles['add-item-container']}>
+            <button className={styles['add-button']} onClick={handleClick}>Add an Item</button>
             {addingItem && (
-                <form onSubmit={handleSubmit}>
-                    <input type="text" onChange={handleChange} placeholder="Add item..." />
-                    <button type="submit">Done</button>
+                <form className={styles['form']} onSubmit={handleSubmit}>
+                    <input className={styles['input']} type="text" onChange={handleChange} placeholder="Add item..." />
+                    <button className={styles['submit-button']} type="submit">Done</button>
                 </form>
             )}
         </div>

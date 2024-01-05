@@ -1,0 +1,31 @@
+/* AddItem.module.css */
+
+.add-item-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.add-button {
+    font-size: 1.5em;
+    padding: 10px;
+    width: 200px;
+}
+
+.form {
+    display: flex;
+    width: 200px;
+}
+
+.input {
+    flex-grow: 1;
+    flex-basis: 70%;
+    box-sizing: border-box;
+}
+
+.submit-button {
+    flex-grow: 1;
+    flex-basis: 30%;
+    box-sizing: border-box;
+    font-size: 0.8em;
+}

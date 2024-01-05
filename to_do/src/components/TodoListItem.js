@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from '../TodoListItem.module.css';
 /*
 take in text item prop
 display text item in a box
@@ -19,10 +20,10 @@ function TodoListItem ({item, handleDelete}) {
     }
 
     return (
-        <div>
-            <button onClick={onClickCheck}>Check</button>
-            <p style={checked ? {textDecoration: 'line-through'}: {}}>{item}</p>
-            <button onClick={() => handleDelete(item)}>Delete</button>
+        <div className={styles['todo-list-item-container']}>
+            <button className={styles['check-button']} onClick={onClickCheck}>Check</button>
+            <p className={styles['todo-list-item']} style={checked ? {textDecoration: 'line-through'}: {}}>{item.text}</p>
+            <button className={styles['delete-button']} onClick={() => handleDelete(item.id)}>Delete</button>
         </div>
     )
     }
